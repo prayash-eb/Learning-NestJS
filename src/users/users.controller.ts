@@ -1,4 +1,15 @@
-import { Controller, Post, Body, Get, Param, Query, Delete, Patch, UseInterceptors, Session } from '@nestjs/common';
+import {
+    Controller,
+    Post,
+    Body,
+    Get,
+    Param,
+    Delete,
+    Patch,
+    Session,
+    UseGuards,
+    UseInterceptors,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDTO } from './dtos/create-user.dto';
 import { UpdateUserDTO } from './dtos/update-user.dto';
@@ -10,6 +21,7 @@ import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './users.entity';
 // import { CurrentUserInterceptor } from './interceptors/current-user.interceptor';
 
+import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('auth')
 // this is one of the way to apply a controller-scoped interceptor to fetch the user
@@ -39,6 +51,7 @@ export class UsersController {
     }
 
     @Get("/whoami")
+    @UseGuards(AuthGuard)
     async whoami(@CurrentUser() user: User) {
         return user;
     }
