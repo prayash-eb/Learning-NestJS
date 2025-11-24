@@ -9,4 +9,22 @@ export class Report {
     @Column()
     price: number
 
+    @Column()
+    manufacturer: string
+
+    @Column()
+    model: string
+
+    @Column()
+    year: number
+
+    @Column()
+    lat: number
+
+    @Column()
+    long: number
+
+    @Column()
+    mileage: number
+
 }

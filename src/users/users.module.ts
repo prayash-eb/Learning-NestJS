@@ -21,4 +21,4 @@ import { CurrentUserInterceptor } from './interceptors/current-user.interceptor'
   ]
 })
 
-export class UsersModule { }
+export class UsersModule {}

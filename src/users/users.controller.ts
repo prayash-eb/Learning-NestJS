@@ -25,7 +25,11 @@ import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('auth')
 // this is one of the way to apply a controller-scoped interceptor to fetch the user
+
+// this can also be done to apply a interceptor directly.
 // @UseInterceptors(CurrentUserInterceptor)
+
+// this is a way yto utlize decorator to embed interceptor
 @Serialize(UserDTO)
 export class UsersController {
     constructor(private userService: UsersService, private authService: AuthService) { }
